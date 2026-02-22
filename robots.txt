@@ -1,0 +1,172 @@
+# ================================================================
+# robots.txt — Multi-layer bot & website copier protection
+# ================================================================
+
+# ── Block ALL crawlers from everything by default ────────────────
+User-agent: *
+Disallow: /
+
+# ── Block specific website copier tools ─────────────────────────
+
+# HTTrack Website Copier
+User-agent: HTTrack
+Disallow: /
+
+# Teleport Pro
+User-agent: TeleportPro
+Disallow: /
+
+# Offline Explorer
+User-agent: Offline Explorer
+Disallow: /
+
+# WebCopier
+User-agent: WebCopier
+Disallow: /
+
+# WebReaper
+User-agent: WebReaper
+Disallow: /
+
+# SiteSucker
+User-agent: SiteSucker
+Disallow: /
+
+# Wget (command line downloader)
+User-agent: Wget
+Disallow: /
+
+# curl
+User-agent: curl
+Disallow: /
+
+# Teleport Ultra
+User-agent: Teleport
+Disallow: /
+
+# Black Widow
+User-agent: Black Widow
+Disallow: /
+
+# WebStripper
+User-agent: WebStripper
+Disallow: /
+
+# NetAttache
+User-agent: NetAttache
+Disallow: /
+
+# Larbin
+User-agent: larbin
+Disallow: /
+
+# Download Ninja
+User-agent: Download Ninja
+Disallow: /
+
+# Mass Downloader
+User-agent: Mass Downloader
+Disallow: /
+
+# Ninja Tricks Downloader
+User-agent: Ninja
+Disallow: /
+
+# Navroad
+User-agent: Navroad
+Disallow: /
+
+# NearSite
+User-agent: NearSite
+Disallow: /
+
+# NetMechanic
+User-agent: NetMechanic
+Disallow: /
+
+# Website Quester
+User-agent: Website Quester
+Disallow: /
+
+# WebZIP
+User-agent: WebZIP
+Disallow: /
+
+# Fetch
+User-agent: Fetch
+Disallow: /
+
+# Snoopy
+User-agent: snoopy
+Disallow: /
+
+# WebAuto
+User-agent: WebAuto
+Disallow: /
+
+# TheNomad
+User-agent: TheNomad
+Disallow: /
+
+# WWW-Collector-E
+User-agent: WWW-Collector-E
+Disallow: /
+
+# Python scripts
+User-agent: python-requests
+Disallow: /
+
+User-agent: python-urllib
+Disallow: /
+
+# Java scrapers
+User-agent: Java
+Disallow: /
+
+# Scrapy (popular scraping framework)
+User-agent: Scrapy
+Disallow: /
+
+# Go HTTP client
+User-agent: Go-http-client
+Disallow: /
+
+# Common search engine bots (block indexing)
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: facebot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /
+
+# Wayback Machine (Internet Archive)
+User-agent: archive.org_bot
+Disallow: /
+
+# Block access to source files directly
+Disallow: /src/
+Disallow: /src/App.js
+Disallow: /src/main.js
+Disallow: /src/protection.js
+Disallow: /src/styles.css.js
+Disallow: /src/bgImage.js
+
+# No sitemap — don't reveal structure
+# Sitemap: (intentionally omitted)

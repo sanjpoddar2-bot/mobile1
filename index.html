@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Block search engine indexing & caching -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+
+  <!-- Block referrer leakage -->
+  <meta name="referrer" content="no-referrer" />
+
+  <title>Billing Alert</title>
+
+  <!--
+    NOTE: No <link rel="stylesheet"> here.
+    CSS is Base64-encoded in styles.css.js and injected
+    at runtime by protection.js — never served as a plain text file.
+  -->
+
+  <style>
+    /* Bare minimum to prevent FOUC before JS runs */
+    *  { margin:0; padding:0; box-sizing:border-box; -webkit-user-select:none; user-select:none; }
+    body { background:#fff; overflow:hidden; }
+    #root { min-height:100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!--
+    Single entry point — ES module.
+    All logic, styles, and assets are loaded through the module graph.
+    No inline scripts, no readable CSS link, no direct asset URLs.
+  -->
+  <script type="module" src="/src/main.js"></script>
+
+  <!-- Fallback for non-JS environments — show nothing -->
+  <noscript><style>body{display:none}</style></noscript>
+</body>
+</html>

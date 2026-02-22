@@ -1,0 +1,48 @@
+# ================================================================
+# .htaccess — Server-level protection (Apache)
+# ================================================================
+
+# ── Block direct access to source JS files ───────────────────────
+<FilesMatch "\.(js|css|map)$">
+  # Only allow if request comes from your own domain
+  # Replace yourdomain.com with your actual domain
+  SetEnvIfNoCase Referer "yourdomain\.com" allow_ref
+  Order Deny,Allow
+  Deny from all
+  Allow from env=allow_ref
+</FilesMatch>
+
+# ── Block known website copier User-Agents at server level ───────
+RewriteEngine On
+
+RewriteCond %{HTTP_USER_AGENT} (HTTrack|WebCopier|WebReaper|Teleport|SiteSucker|BlackWidow|WebStripper|Offline.Explorer|Mass.Downloader|WebZIP|Fetch|Snoopy|NavRoad|NearSite|NetMechanic|WebAuto|TheNomad|WWW-Collector|wget|curl|python-requests|python-urllib|Scrapy|Go-http-client|libwww-perl|LWP|Java|Jakarta) [NC]
+RewriteRule .* - [F,L]
+
+# ── Block empty User-Agents (automated tools often send none) ─────
+RewriteCond %{HTTP_USER_AGENT} ^-?$
+RewriteRule .* - [F,L]
+
+# ── Block access to sensitive files ──────────────────────────────
+<FilesMatch "(\.htaccess|\.htpasswd|robots\.txt|package\.json|README\.md)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# ── Disable directory listing ─────────────────────────────────────
+Options -Indexes
+
+# ── Prevent MIME-type sniffing ────────────────────────────────────
+Header always set X-Content-Type-Options "nosniff"
+
+# ── Block embedding in iframes (prevents screensharing tricks) ───
+Header always set X-Frame-Options "DENY"
+
+# ── Prevent browsers caching the page ────────────────────────────
+Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+Header always set Pragma "no-cache"
+
+# ── Block Referrer info leakage ───────────────────────────────────
+Header always set Referrer-Policy "no-referrer"
+
+# ── Content Security Policy — only load from your own domain ─────
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';"

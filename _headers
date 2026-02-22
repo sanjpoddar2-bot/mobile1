@@ -1,0 +1,15 @@
+# ================================================================
+# _headers — Works on Netlify & Cloudflare Pages
+# ================================================================
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Cache-Control: no-store, no-cache, must-revalidate
+  Pragma: no-cache
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none';
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/src/*
+  X-Robots-Tag: noindex, nofollow, noarchive
